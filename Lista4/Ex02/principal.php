@@ -1,10 +1,10 @@
 <?php
     session_start();
 
-    if(isset($_SESSION['login'])==1){
+    if($_SESSION['login'] == 1){
         echo "Bem vindo ao sistema integrado";
+        header("Refresh:5, index.php");
     }else{
-        echo "Usuario ou senha incorreto";
         header("location: index.php");
     }
 
