@@ -14,10 +14,10 @@
             <form action="" method="post">
                 <fieldset>
                     <div>
-                    <input type="radio" name="txtres" id=""value = 0><label for="">KAKASHI</label><p>
-                    <input type="radio" name="txtres" id=""value = 1><label for="">GAARA</label><p>
-                    <input type="radio" name="txtres" id=""value = 2><label for="">GAI</label><p>
-                    <input type="radio" name="txtres" id=""value = 3><label for="">SHIKAMARU</label><p>
+                    <input type="radio" name="txtres" id=""value = 0><label for="">KAKASHI SENSEI</label><p>
+                    <input type="radio" name="txtres" id=""value = 1><label for="">GAARA SENSEI</label><p>
+                    <input type="radio" name="txtres" id=""value = 2><label for="">GAI SENSEI</label><p>
+                    <input type="radio" name="txtres" id=""value = 3><label for="">SHIKAMARU SENSEI</label><p>
                     </div>
                 </fieldset>
                 <button type="submit">SALVAR RESPOSTA</button>

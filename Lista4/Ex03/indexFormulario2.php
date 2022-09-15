@@ -25,7 +25,7 @@
                     $_SESSION['peso1']=$_POST['txtpeso1'];
                     $_SESSION['altura1']=$_POST['txtaltura1'];
 
-                    echo "<p><a href=\"compara.php\">SALVAR</a>";    
+                    echo "<p><a href=\"compara.php\">ENVIAR</a>";    
                 }
 
         
