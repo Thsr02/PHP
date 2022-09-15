@@ -1,4 +1,5 @@
 <?php
+session_start();
 if($_SESSION['altura'] > $_SESSION['altura1']){
     echo $_SESSION['nome']." É o Mais Alto";
 }else{
