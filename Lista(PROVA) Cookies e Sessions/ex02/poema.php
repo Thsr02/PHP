@@ -8,11 +8,12 @@
 </head>
 <body>
     <?php
-session_start();
-    if(isset($_SESSION['cor'])){
+    session_start();
+    if(isset($_POST['txtcor'])){
         $_SESSION['cor']=$_POST['txtcor'];
+
             switch ($_SESSION['cor']) {
-                case '1':
+                case 1:
                     echo "<style>
                 .alternativa{
                     display: none;
@@ -21,18 +22,40 @@ session_start();
                     color: blue;
                 }
                 </style>";  
-                        header("Refresh: 5, poema.php");
+                        header("Refresh: 3, poema.php");
                     break;
-                case '2':
-                        
-                            header("Refresh: 5, poema.php");
+                case 2:
+                    echo "<style>
+                    .alternativa{
+                        display: none;
+                    }
+                    section{
+                        color: yellow;
+                    }
+                    </style>"; 
+                            header("Refresh: 3, poema.php");
                     break;
-                case '3':
-                            
-                                header("Refresh: 5, poema.php");
+                case 3:
+                    echo "<style>
+                    .alternativa{
+                        display: none;
+                    }
+                    section{
+                        color: green;
+                    }
+                    </style>";   
+                                header("Refresh: 3, poema.php");
                     break;
-                case '4':
-                               
+                case 4:
+                    echo "<style>
+                    .alternativa{
+                        display: none;
+                    }
+                    section{
+                        color: pink;
+                    }
+                    </style>";
+                                header("Refresh: 3, poema.php");     
                     break;
                 
                 default:
@@ -40,14 +63,14 @@ session_start();
                     break;
             }
     session_destroy();
-    }else{
+    }
 
 ?>
     <div class="alternativa">
         <form action="poema.php" method="post">
                 <fieldset>
                     Qual sua cor Favorita:?
-                    <select name="txtcor" id="">
+                    <select name="txtcor" id="txtcor">
                         <option value="1">AZUL</option>
                         <option value="2">AMARELO</option>
                         <option value="3">VERDE</option>
@@ -74,5 +97,3 @@ session_start();
     </section>
 </body>
 </html>
-<?php
-    }
