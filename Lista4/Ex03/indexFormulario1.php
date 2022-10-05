@@ -25,7 +25,7 @@
                     $_SESSION['peso']=$_POST['txtpeso'];
                     $_SESSION['altura']=$_POST['txtaltura'];
 
-                    echo "<p><a href=\"indexFormulario2.php\">SALVAR</a>";    
+                    echo "<p><a href=\"indexFormulario2.php\">PROXIMO FORMULARIO</a>";    
                 }
 
         
