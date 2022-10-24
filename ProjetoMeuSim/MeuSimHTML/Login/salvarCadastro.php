@@ -9,18 +9,18 @@
         include "conexao.php";
 
         try {
-            $stmt = $conexao->prepare("INSERT INTO cadastrar(cad_email, cad_senha) VALUES (?,?);");
+            $stmt = $conexao->prepare("INSERT INTO tbl_usuario(usu_email, usu_senha) VALUES (?,?);");
             $stmt->bindParam(1, $email);
             $stmt->bindParam(2, $senha1);
                 if($stmt->execute()){
                     if($stmt->rowCount()>0){
                         echo "Cadastro realizado com sucesso!";
-                        header("refresh: 3, ../index.php");
+                        header("refresh: 3, ../index.html");
                     }else{
                         echo "ERRO: Não foi possivel executar a declaração sql";
                     }
                 }else{
-                    echo "Erro na execução docadastro";
+                    echo "Erro na execução do cadastro";
                 }
         }catch (PDOException $erro){
             echo "Erro na conexão: ".$erro->getMessage();
@@ -28,7 +28,7 @@
     
     }else{
         $_SESSION['erro'] = $_POST['senha1'];
-        header("location: cadastrar.php");
+        header("location: /MeuSimHTML/Login/cadastar.php");
     }
 
     }

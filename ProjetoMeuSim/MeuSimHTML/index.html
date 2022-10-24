@@ -1,81 +1,53 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ÉMeuSim</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../MeuSimHTML/css/style.css">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Projeto ÉMeuSim</title>
+    <link rel="stylesheet" href="../MeuSimHTML/css/styleAnimacao.css">
+    <link rel="stylesheet" href="../MeuSimHTML/css/bootstrap.min.css">
 </head>
 <body>
-    <header class="menulogin">
-        <nav class="navbar navbar-default"><!-- Código do NavBar -->
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html"><!-- Logo -->
-                      ÉMeuSim
-                    </a>
-                </div>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#" data-toggle="modal" data-target="#myModal"><!-- Link que abre a janela modal -->
-                            Entrar 
-                            <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="../MeuSimHTML/Login/cadastar.php">
-                            Cadastrar
-                            <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-    
-    <div id="myModal" class="modal fade" tabindex="-1" role="dialog"><!-- Início do código da janela modal -->
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header"><!-- Header do modal -->
-                    <h4 class="modal-title">Login</h4><!-- Título -->
-                </div>
-                <div class="modal-body"><!-- Corpo do modal -->
-                    <form action="cadastro.php" method="post"><!-- Início do Formulário -->
-                        <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Digite seu email">
-                        </div>
-                        <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Digite sua senha">
-                        </div>
-                        <button class="btn btn-block btn-info">Enviar</button>
-                    </form>
-                </div>
-                <div class="modal-footer"><!-- Footer do Modal -->
-                    <button type="button" class="btn btn-default" data-dismiss="modal">
-                        Fechar <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                    </button>                
-                </div>
-            </div>
+  <div class="row">
+    <nav class="navbar bg-light">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <img src="../MeuSimHTML/img/cadeado-aberto.png" alt="Bootstrap" width="30" height="24">
+          </a>
+          <form action="../MeuSimHTML/Login/checaLogin.php" method="post">
+          <ul class="nav justify-content-end">
+            <li class="nav-item">
+              Email <input type="email" name="email" id="" placeholder="digite seu email">
+            </li>
+            <li class="nav-item">
+              Senha <input type="password" name="senha1" id="" placeholder="digite sua senha">
+            </li>
+            <li class="nav-item">
+              
+                <input type="submit" value="Entrar">
+          </form>
+            </li>
+            <li class="nav-item">
+              <a href="../MeuSimHTML/Login/cadastar.php" class="nav-link">Cadastrar</a>
+            </li>
+          </ul>
         </div>
-    </div><!-- ##Fim do Modal -->
-        <section class="animacao">
-            <a class="codepen-promotion" target="_blank" href="https://codepen.io/collection/nZpPbz/" title="The Most Hearted of 2017">
-                <img class="codepen-promotion__image" src="https://www.plasm.it/images/codepen-promotion.png" alt="">
-            </a>
-
-                <div class="title">
-                    <h3>Etec Guaratingueta - 2022</h3>
-                    <h1>ÉMeuSim</h1>
-                    <h3>Desenvolvimento de sistema <strong>D S 2B</strong></h3>
-                </div>
-        </section>
+      </nav><!--FIM DA NAVBAR-->
+</div>
+    <div class="title">
+      <div class="animacao">
+          
+          <h3>Etec Guaratinguetá</h3>
+          <h1>ÉMeuSim</h1>
+          <h3>DESENVOLVIMENTO DE SISTEMAS <strong>2 D S B</strong></h3>
+        </div>
+    </div>    
 
 
-    <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script><script  src="../MeuSimHTML/js/animacao.js"></script>
-    <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script><!-- Chama a biblioteca JQuery -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script><!-- Chama o arquivo Bootstrap JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+        <!-- js e jquery da animação -->
+        <script src='https://code.jquery.com/jquery-2.2.4.min.js'>
+        </script><script  src="../MeuSimHTML/js/animacaoscript.js"></script>
 </body>
 </html>
