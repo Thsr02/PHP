@@ -11,28 +11,28 @@
 </head>
 <body>
     
-            <div class="login-card-container">
-                <div class="login-card">
-                        <div class="login-card-logo">
-                            <img src="img/bebida.png" alt="">
-                        </div>
-                    <div class="login-card-header">
-                        <h1>Cadastro<br>ÉMeuSim</h1>
+                <div class="login-card-container">
+                    <div class="login-card">
+                            <div class="login-card-logo">
+                                <img src="img/bebida.png" alt="">
+                            </div>
+                        <div class="login-card-header">
+                            <h1>Cadastro<br>ÉMeuSim</h1>
 
-                    </div>
-                            <form class="login-card-form" action="salvarCadastro.php" method="post">
-                    <div class="form-item">
-                        <span class="form-item-icon material-symbols-rounded">mail</span>
-                        <input type="text" placeholder="Entre com Email" name="email" required autofocus>
-                    </div>
-                    <br>
-                    <div class="form-item">
-                        <span class="form-item-icon material-symbols-rounded">lock</span>
-                        <input type="password" placeholder="Senha" name="senha1" required>
-                    </div>
-                    <div class="form-item">
-                        <span class="form-item-icon material-symbols-rounded">lock</span>
-                        <input type="password" placeholder="Confirmar senha" name="senha2" required>
+                        </div>
+                                <form class="login-card-form" action="salvarCadastro.php" method="post">
+                        <div class="form-item">
+                            <span class="form-item-icon material-symbols-rounded">mail</span>
+                            <input type="text" placeholder="Entre com Email" name="email" required autofocus>
+                        </div>
+                        <br>
+                        <div class="form-item">
+                            <span class="form-item-icon material-symbols-rounded">lock</span>
+                            <input type="password" placeholder="Senha" name="senha1" required>
+                        </div>
+                        <div class="form-item">
+                            <span class="form-item-icon material-symbols-rounded">lock</span>
+                            <input type="password" placeholder="Confirmar senha" name="senha2" required>
                         <?php
                         session_start();
                         if(isset($_SESSION['erro'])){

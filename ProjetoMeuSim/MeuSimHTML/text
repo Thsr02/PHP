@@ -1,0 +1,38 @@
+<div class="formEletronico">
+    <form class="contact-form row">
+       <div class="form-field col-lg-6">
+          <input id="name" class="input-text js-input" type="text" required>
+          <label class="label" for="name">Nome do item</label>
+       </div>
+       <div class="form-field col-lg-6">
+          <input id="name" class="input-text js-input" type="text" required>
+          <label class="label" for="name">Marca</label>
+       </div>
+       <div class="form-field col-lg-6">
+          <input id="name" class="input-text js-input" type="text" required>
+          <label class="label" for="name">Modelo</label>
+       </div>
+       <div class="form-field col-lg-6">
+          <input id="name" class="input-text js-input" type="number" required>
+          <label class="label" for="name">Nota Fiscal</label>
+       </div>
+       <div class="form-field col-lg-6 ">
+          <input id="email" class="input-text js-input" type="number" required>
+          <label class="label" for="email">Codigo de identificação ou IME</label>
+       </div>
+       <div class="form-field col-lg-6 ">
+          <input id="email" class="input-text js-input" type="text" required>
+          <label class="label" for="email">Cor</label>
+       </div>
+       <div class="form-field col-lg-12">
+          <input id="message" class="input-text js-input" type="text" required>
+          <label class="label" for="message">Descrição</label>
+       </div>
+       <div class="form-field col-lg-6 ">
+       <br><label for="formFileSm" class="form-label submit-btn p-1">Anexe seu arquivo</label>
+           <input class="form-control form-control-sm mt-5" id="formFileSm" type="file" accept="image">
+       </div>
+       <div class="form-field col-lg-12">
+          <input class="submit-btn" type="submit" value="Submit">
+       </div>
+    </form>

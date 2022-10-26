@@ -88,7 +88,6 @@ https://templatemo.com/tm-579-cyborg-gaming
                   </div>
                   <div class="col-lg-4 align-self-center">
                     <div class="main-info header-text">
-                      <span>Offline</span>
                       <h4>Thiago Rodrigues</h4>
                       <p>A vida é bela por isso vamos curtir, muito ela</p>
                     </div>
@@ -108,7 +107,7 @@ https://templatemo.com/tm-579-cyborg-gaming
                       <div class="row">
                         <div class="col-lg-12">
                           <div class="heading-section">
-                            <h4><em>Principais itens</em> FOTOS</h4>
+                            <h4><em>Principais</em> ITENS</h4>
                           </div>
                         </div>
                         <div class="col-lg-3 col-sm-6">
