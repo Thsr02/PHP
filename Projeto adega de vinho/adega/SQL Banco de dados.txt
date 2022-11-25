@@ -1,0 +1,37 @@
+CREATE TABLE tbl_wines(
+	win_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+    win_name VARCHAR(50),
+    win_winery VARCHAR(80),
+    win_year YEAR,
+    win_country VARCHAR(50),
+    win_literage INT(11),
+    win_type VARCHAR(50),
+    win_region INT,
+    win_description TEXT(800),
+    win_content INT(11),
+    win_classification VARCHAR(50),
+    win_grape VARCHAR(50),
+    win_guardTime VARCHAR(50),
+    win_temp INT(11),
+    win_harmonization TEXT(800)
+);
+
+CREATE TABLE tbl_producer(
+	prod_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    prod_name VARCHAR(50),
+    prod_tel CHAR(13),
+    prod_email VARCHAR(100),
+    prod_region INT(11)
+);
+
+CREATE TABLE tbl_region(
+	reg_id INT  NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    regn_name VARCHAR(80)
+);
+
+CREATE TABLE tbl_user(
+	user_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    user_name VARCHAR(80),
+    user_email VARCHAR(100),
+    user_password VARCHAR(100)
+);
