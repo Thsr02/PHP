@@ -16,8 +16,7 @@
             $stmt->bindParam(3, $pass1);
                 if($stmt->execute()){
                     if($stmt->rowCount()>0){
-                        echo "Cadastro realizado com sucesso!";
-                        header("refresh: 3, ../index.html");
+                        header("refresh: 1, ../index.html");
                     }else{
                         echo "ERRO: Não foi possivel executar a declaração sql";
                     }

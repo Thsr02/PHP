@@ -1,3 +1,16 @@
+<?php
+session_start();
+include "../Login/connection.php";
+if (!isset($_SESSION['email']) == true and (!isset($_SESSION['password']) == true)) {
+
+    unset($_SESSION['email']);
+    unset($_SESSION['password']);
+    header('location: ../index.html');
+  
+}else{
+
+    ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -23,9 +36,10 @@
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
                         <a class="nav-link" aria-current="page" href="../page/home.php">Home</a>
-                        <a class="nav-link" href="../page/registerWine.php">Vinhos</a>
-                        <a class="nav-link" href="../page/registerRegion.php">Regiões</a>
-                        <a class="nav-link" href="../page/registerProducer.php">Protudores</a>
+                        <a class="nav-link" href="../page/wineGallery.php">Galeria de Vinhos</a>
+                        <a class="nav-link" href="../page/registerWine.php">Cadastrar Vinhos</a>
+                        <a class="nav-link" href="../page/registerRegion.php">Cadastrar Regiões</a>
+                        <a class="nav-link" href="../page/registerProducer.php">Cadastrar Protudores</a> 
                     </div>
                 </div>
                 <form class="register"action="../index.html">
@@ -34,6 +48,7 @@
             </div>
         </nav>
     </header>
+    <p><h1><?php echo "Bem vindo ".$_SESSION['name']?></h1></p>
     <section class="carroseu">
         <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
@@ -79,7 +94,11 @@
 
 
 
-    <script src="/adega_thiago/js/bootstrap.min.js"></script>
+    <script src="/adega/js/bootstrap.min.js"></script>
+    
 </body>
 
 </html>
+<?php
+}
+?>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,11 +9,10 @@
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <title>Cadastro de produtor</title>
 </head>
+
 <body>
-    <?php
-        session_start();
-    ?>
-        <!-- <header>
+
+    <!-- <header>
             <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
                 <a class="navbar-brand" href="#">
@@ -35,33 +35,23 @@
                 </div>
             </nav>
         </header> -->
-        <section class="form">
-            <div class="container">
-                <div class="form-image">
-                    <img src="../img/winery.svg" alt="" >
-                </div>
-                <div class="form">
+    <section class="form">
+        <div class="container">
+            <div class="form-image">
+                <img src="../img/winery.svg" alt="">
+            </div>
+            <div class="form">
                 <form action="../checkForm/checkProducerForm.php" method="post">
-                        <div class="form-header">
-                            <div class="title">
-                                <h1>Cadastro de produtor</h1>
-                            </div>
+                    <div class="form-header">
+                        <div class="title">
+                            <h1>Cadastro de produtor</h1>
                         </div>
+                    </div>
                     <div class="input-group">
 
                         <div class="input-box">
                             <label for="prodName">Nome</label>
                             <input type="text" name="prodName" id="prodName" placeholder="Nome do produtor" required>
-                        </div>
-
-                        <div class="input-box">
-                            <label for="prodRegion">Região</label>
-                            <input type="text" name="prodRegion" id="prodRegion" placeholder="Região" required>
-                        </div>
-
-                        <div class="input-box">
-                            <label for="prodWineryName">Vinícola</label>
-                            <input type="text" name="prodWineryName" id="prodWineryName" placeholder="Nome da vinícola" required>
                         </div>
 
                         <div class="input-box">
@@ -73,24 +63,47 @@
                             <label for="prodEmail">Email</label>
                             <input type="email" name="prodEmail" id="prodEmail" placeholder="digite seu imail" required>
                         </div>
-        
-                    </div>
-                        <div class="form-header">
-                            <div class="register-button">
-                                <input id="inpb" type="submit" value="Enviar">
-                            </div>
+
+                        <div class="input-box">
+                            <label for="prodRegion">Região</label>
+                            <select name="prodRegion" id="wineRegion">
+                            <?php
+                            session_start();
+                                include "../Login/connection.php";
+                                $sql = "SELECT reg_name, reg_id FROM tbl_region WHERE reg_userId = $_SESSION[id] ";
+                                $res = $connection->prepare($sql);
+                                $res->execute();
+                                while($result = $res->fetch(PDO::FETCH_ASSOC)){
+                                    $reg_name = $result['reg_name'];
+                                    $reg_id = $result['reg_id'];
+                            ?>
+
+                                    <option value="<?php echo $reg_id ?>"><?php echo $reg_name?></option>
+                            <?php    
+                                }
+                            ?>
+                            
+                                
+                            </select>
                         </div>
+                    </div>
+                    <div class="form-header">
+                        <div class="register-button">
+                            <input id="inpb" type="submit" value="Enviar">
+                        </div>
+                    </div>
                 </form>
-                </div>    
             </div>
-                        <form action="../page/home.php" method="post">
-                            <div class="form-header">
-                                <div class="register-button">
-                                    <input id="inpb" type="submit" value="Voltar">
-                                </div>
-                            </div>
-                        </form>
-        </section>
+        </div>
+        <form action="../page/home.php" method="post">
+            <div class="form-header">
+                <div class="register-button">
+                    <input id="inpb" type="submit" value="Voltar">
+                </div>
+            </div>
+        </form>
+    </section>
     <script src="/adega_thiago/js/bootstrap.min.js"></script>
 </body>
+
 </html>
