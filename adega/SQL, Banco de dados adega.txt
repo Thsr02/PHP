@@ -1,0 +1,56 @@
+CREATE DATABASE db_adega DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+
+CREATE TABLE tbl_wines(
+    vin_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    vin_name VARCHAR(50),
+    vin_year YEAR,
+    vin_literage INT(11),
+    vin_type VARCHAR(50),
+    vin_country VARCHAR(80),
+    vin_description TEXT(800),
+    vin_winery VARCHAR(50),
+    vin_grape VARCHAR(50),
+    vin_content INT(11),
+    vin_classification VARCHAR(50),	
+    vin_harmonization TEXT(800),
+    vin_producer INT(11)
+);
+
+CREATE TABLE tbl_producer(
+	prod_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    prod_name VARCHAR(50),
+    prod_tel CHAR(13),
+    prod_email VARCHAR(100),
+    prod_region INT(11)
+);
+
+CREATE TABLE tbl_region(
+	reg_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    reg_name VARCHAR(50)
+);
+
+CREATE TABLE tbl_user(
+user_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+user_email VARCHAR(80),
+user_name VARCHAR(80),
+user_password VARCHAR(100)
+);
+
+ALTER TABLE tbl_wines ADD FOREIGN KEY(vin_producer) REFERENCES tbl_producer(prod_id);
+
+ALTER TABLE tbl_producer ADD FOREIGN KEY(prod_region) REFERENCES tbl_region(reg_id);
+
+ALTER TABLE tbl_wines ADD COLUMN vin_userId INT NOT NULL;
+
+ALTER TABLE tbl_wines ADD FOREIGN KEY (vin_userId) REFERENCES tbl_user(user_id);
+
+ALTER TABLE tbl_producer ADD COLUMN prod_userId INT NOT NULL;
+
+ALTER TABLE tbl_producer ADD FOREIGN KEY (prod_userId) REFERENCES tbl_user(user_id);
+
+ALTER TABLE tbl_region ADD COLUMN reg_userId INT NOT NULL;
+
+ALTER TABLE tbl_region ADD FOREIGN KEY (reg_userId) REFERENCES tbl_user(user_id);
+
+
+

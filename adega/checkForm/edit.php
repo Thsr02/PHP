@@ -9,7 +9,7 @@ if (!isset($_SESSION['email']) == true and (!isset($_SESSION['password']) == tru
 }else{
 
         include "../Login/connection.php";
-
+        $win_id = $_GET['win_id'];
         $wine_userId = $_SESSION['id'];
         $wine_name = filter_input(INPUT_POST, 'wineName', FILTER_DEFAULT);
         $wine_country = filter_input(INPUT_POST, 'wineCountry', FILTER_DEFAULT);
@@ -21,25 +21,23 @@ if (!isset($_SESSION['email']) == true and (!isset($_SESSION['password']) == tru
         $wine_classification = filter_input(INPUT_POST, 'wineClassification', FILTER_DEFAULT);
         $wine_content = filter_input(INPUT_POST, 'wineContent', FILTER_DEFAULT);
         $wine_producer = filter_input(INPUT_POST, 'wineProducer', FILTER_DEFAULT);
-       
 
 
-        $stmt = $connection->prepare("INSERT INTO tbl_wines(vin_name, vin_country, vin_year, vin_literage, vin_type, vin_grape, vin_winery, vin_classification, vin_content, vin_producer, vin_userId) 
-        VALUES (:wineName, :wineCountry, :wineYear, :literage, :wineType, :grape, :wineryName, :wineClassification, :wineContent, :wineProducer, :wine_userId);");
-    
-        $stmt->bindValue(':wineName', $wine_name);
-        $stmt->bindValue(':wineCountry', $wine_country);
-        $stmt->bindValue(':wineYear', $wine_year);
-        $stmt->bindValue(':literage', $wine_literage);
-        $stmt->bindValue(':wineType', $wine_type);
-        $stmt->bindValue(':grape', $wine_grape);
-        $stmt->bindValue(':wineryName', $wine_winery);
-        $stmt->bindValue(':wineClassification', $wine_classification);
-        $stmt->bindValue(':wineContent', $wine_content);
-        $stmt->bindValue(':wineProducer', $wine_producer);
-        $stmt->bindValue(':wine_userId', $wine_userId);
+    $sqlUpdate = $connection->prepare("UPDATE tbl_wines SET vin_name=:wine_name, vin_country=:wine_country, vin_year=:wine_year, vin_literage=:wine_literage, vin_type=:wine_type, vin_grape=:wine_grape,
+     vin_winery=:wine_winery, vin_classification=:wine_classification, vin_content=:wine_content, vin_producer=:wine_producer WHERE vin_id = $win_id AND vin_userId = $wine_userId" );
 
-        if($stmt->execute()){
+        $sqlUpdate->bindValue(':wine_name', $wine_name);
+        $sqlUpdate->bindValue(':wine_country', $wine_country);
+        $sqlUpdate->bindValue(':wine_year', $wine_year);
+        $sqlUpdate->bindValue(':wine_literage', $wine_literage);
+        $sqlUpdate->bindValue(':wine_type', $wine_type);
+        $sqlUpdate->bindValue(':wine_grape', $wine_grape);
+        $sqlUpdate->bindValue(':wine_winery', $wine_winery);
+        $sqlUpdate->bindValue(':wine_classification', $wine_classification);
+        $sqlUpdate->bindValue(':wine_content', $wine_content);
+        $sqlUpdate->bindValue(':wine_producer', $wine_producer);
+
+        if($sqlUpdate->execute()){
            
             header('refresh: 1,../page/wineGallery.php');
             // header('location:../page/home.php');

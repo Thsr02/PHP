@@ -1,5 +1,16 @@
+<?php
+session_start();
+if (!isset($_SESSION['email']) == true and (!isset($_SESSION['password']) == true)) {
+
+    unset($_SESSION['email']);
+    unset($_SESSION['password']);
+    header('location: ../index.html');
+
+} else {
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,10 +19,9 @@
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <title>Cadastro de vinhos</title>
 </head>
+
 <body>
-    <?php
-        session_start();
-    ?>
+
     <!-- <header>
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
@@ -35,18 +45,18 @@
             </div>
         </nav>
     </header> -->
-        <section class="form">
-            <div class="container">
-                <div class="form-image">
-                    <img src="../img/winery.svg" alt="" >
-                </div>
-                <div class="form">
+    <section class="form">
+        <div class="container">
+            <div class="form-image">
+                <img src="../img/winery.svg" alt="">
+            </div>
+            <div class="form">
                 <form action="../checkForm/checkWineForm.php" method="post">
-                        <div class="form-header">
-                            <div class="title">
-                                <h1>Cadastre seu vinho</h1>
-                            </div>
+                    <div class="form-header">
+                        <div class="title">
+                            <h1>Cadastre seu vinho</h1>
                         </div>
+                    </div>
                     <div class="input-group">
 
                         <div class="input-box">
@@ -60,18 +70,13 @@
                         </div>
 
                         <div class="input-box">
-                            <label for="wineRegion">Região</label>
-                            <input type="text" name="wineRegion" id="wineRegion" placeholder="Região" required>
-                        </div>
-
-                        <div class="input-box">
                             <label for="wineYear">Ano de Fabricação</label>
-                            <input type="text" name="wineCountry" id="wineCountry" placeholder="Ano de fabricação" required>
+                            <input type="number" name="wineYear" id="wineYear" placeholder="Ano de fabricação" required>
                         </div>
 
                         <div class="input-box">
                             <label for="literage">Litragem da garrafa</label>
-                            <input type="text" name="literage" id="literage" placeholder="Litragem Ex: 750ml" required>
+                            <input type="number" name="literage" id="literage" placeholder="Litragem Ex: 750ml" required>
                         </div>
 
                         <div class="input-box">
@@ -96,45 +101,55 @@
 
                         <div class="input-box">
                             <label for="wineContent">Teor alcoólico</label>
-                            <input type="text" name="wineContent" id="wineContent" placeholder="Teor alcoólico" required>
+                            <input type="number" name="wineContent" id="wineContent" placeholder="Teor alcoólico" required>
                         </div>
-
+                        
                         <div class="input-box">
-                            <label for="timeGuard">Tempo de guarda</label>
-                            <input type="text" name="timeGuard" id="timeGuard" placeholder="Ex: 5 anos" required>
-                        </div>
+                            <label for="wineProd">Produtor</label>
+                            <select name="wineProducer" id="WineProducer">
+                                <?php
+    session_start();
+    include "../Login/connection.php";
+    $sql = "SELECT prod_name, prod_id FROM tbl_producer  WHERE prod_userId =  $_SESSION[id];";
+    $res = $connection->prepare($sql);
+    $res->execute();
 
-                        <div class="input-box">
-                            <label for="wineTemp">Temperatura</label>
-                            <input type="text" name="wineTemp" id="wineTemp" placeholder="Temperatura 16ºC" required>
-                        </div>
+    while ($result = $res->fetch(PDO::FETCH_ASSOC)) {
+        $prod_name = $result['prod_name'];
+        $prod_id = $result['prod_id'];
+                                ?>
+                                    <option value="<?php echo $prod_id ?>"><?php echo $prod_name ?></option>
+                                <?php
+    }
+                                ?>
 
-                        <div class="input-box">
-                            <label for="wineHarmonization">Harmonização</label>
-                            <textarea name="wineHarmonization" id="wineHarmonization" cols="35" rows="3" placeholder="Descreva a harmonização do vinho"></textarea>
-                        </div>
-
-                        <div class="input-box">
-                            <label for="wineDescription">Descrição do vinho</label>
-                            <textarea name="wineDescription" id="wineDescription" cols="35" rows="3" placeholder="Descrição do vinho"></textarea>
+                            </select>
                         </div>
                     </div>
-                        <div class="form-header">
-                            <div class="register-button">
-                                <input id="inpb" type="submit" value="Enviar">
-                            </div>
+                    <div class="form-header">
+                        <div class="register-button">
+                            <input id="inpb" type="submit" value="Enviar">
                         </div>
+
+
+
+                    </div>
                 </form>
-                </div>    
             </div>
-                        <form action="../page/home.php" method="post">
-                            <div class="form-header">
-                                <div class="register-button">
-                                    <input id="inpb" type="submit" value="Voltar">
-                                </div>
-                            </div>
-                        </form>
-        </section>
+        </div>
+        <form action="../page/home.php" method="post">
+            <div class="form-header">
+                <div class="register-button">
+                    <input id="inpb" type="submit" value="Voltar">
+                </div>
+            </div>
+        </form>
+    </section>
     <script src="/adega_thiago/js/bootstrap.min.js"></script>
 </body>
+
 </html>
+
+<?php
+}
+?>
