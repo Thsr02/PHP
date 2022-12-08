@@ -52,5 +52,11 @@ ALTER TABLE tbl_region ADD COLUMN reg_userId INT NOT NULL;
 
 ALTER TABLE tbl_region ADD FOREIGN KEY (reg_userId) REFERENCES tbl_user(user_id);
 
+ALTER TABLE tbl_region ADD COLUMN reg_show INT NOT NULL;    
+
+ALTER TABLE tbl_producer ADD COLUMN prod_show INT NOT NULL;
+
+ALTER TABLE tbl_producer ADD COLUMN prod_show INT NOT NULL;
+
 
 

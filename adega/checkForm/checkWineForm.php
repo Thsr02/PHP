@@ -41,7 +41,7 @@ if (!isset($_SESSION['email']) == true and (!isset($_SESSION['password']) == tru
 
         if($stmt->execute()){
            
-            header('refresh: 1,../page/wineGallery.php');
+            header('refresh: 1,../page/gallery/wineGallery.php');
             // header('location:../page/home.php');
         }else{
             echo"Dados não Enviados";

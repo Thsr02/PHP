@@ -20,12 +20,13 @@ if (!isset($_SESSION['email']) == true and (!isset($_SESSION['password']) == tru
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../css/styleGallery.css">
     <title>HomePage Adega</title>
 </head>
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg">
+        <nav class="navbar navbar-expand-lg" id="navBar">
             <div class="container-fluid">
             <a class="navbar-brand" href="#">
                         <img src="../img/logo.wine.jpg" alt="" width="50" height="50">
@@ -36,10 +37,24 @@ if (!isset($_SESSION['email']) == true and (!isset($_SESSION['password']) == tru
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
                         <a class="nav-link" aria-current="page" href="../page/home.php">Home</a>
-                        <a class="nav-link" href="../page/wineGallery.php">Galeria de Vinhos</a>
-                        <a class="nav-link" href="../page/registerWine.php">Cadastrar Vinhos</a>
-                        <a class="nav-link" href="../page/registerRegion.php">Cadastrar Regiões</a>
-                        <a class="nav-link" href="../page/registerProducer.php">Cadastrar Protudores</a> 
+                        <a class="nav-link" href="../page/gallery/wineGallery.php">Vinhos</a>
+                        <a class="nav-link" href="../page/gallery/producerGallery.php">Produtores</a>
+                        <a class="nav-link" href="../page/gallery/regionGallery.php">Regiões</a>
+                        <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                            <ul class="navbar-nav">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        Inserir Cadastros   
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-dark">
+                                        <li><a class="dropdown-item" href="../page/register/registerWine.php">Cadastrar Vinhos</a></li>
+                                        <li><a class="dropdown-item" href="../page/register/registerProducer.php">Cadastrar Produtor</a></li>
+                                        <li><a class="dropdown-item" href="../page/register/registerRegion.php">Cadastrar Região</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <form class="register"action="../checkForm/exit.php">
@@ -96,7 +111,7 @@ if (!isset($_SESSION['email']) == true and (!isset($_SESSION['password']) == tru
 }
 ?>
 
-    <script src="/adega/js/bootstrap.min.js"></script>
+<script src="../js/bootstrap.bundle.min.js"></script>
     
 </body>
 

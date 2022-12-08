@@ -14,12 +14,12 @@
 
 
    try{
-       $stmt = $connection->prepare("DELETE FROM tbl_wines WHERE vin_id = ? AND vin_userId = ? ");
+       $stmt = $connection->prepare("UPDATE tbl_wines SET vin_show = 1 WHERE vin_id = ? AND vin_userId = $_SESSION[id] ");
        $stmt->bindParam(1, $win_id);
-       $stmt->bindParam(2, $_SESSION['id']);
+       
            if($stmt->execute()){
                echo "<script>alert('Deletado com sucesso');</script>";
-                   header("refresh: 2 ../page/wineGallery.php");
+                   header("refresh: 2 ../page/gallery/wineGallery.php");
            }
    }catch(PDOException $erro){
        echo "Erro na conexão" . $erro->getMessage();
