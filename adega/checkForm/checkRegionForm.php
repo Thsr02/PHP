@@ -20,7 +20,7 @@ if (!isset($_SESSION['email']) == true and (!isset($_SESSION['password']) == tru
 
             if($stmt->execute()){
                 echo"Dados enviados";
-                header('location:../page/home.php');
+                header('location:../page/gallery/regionGallery.php');
             }else{
                 echo"Dados não Enviados";
                 

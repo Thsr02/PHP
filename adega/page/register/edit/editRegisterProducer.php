@@ -4,11 +4,28 @@ if (!isset($_SESSION['email']) == true and (!isset($_SESSION['password']) == tru
 
     unset($_SESSION['email']);
     unset($_SESSION['password']);
-    header('location: ../../index.html');
+    header('location: ../../../index.html');
 
 } else {
-?>
 
+    include "../../../Login/connection.php";
+    $prodSelect = $_GET['prodSelect'];
+    $prod_userId = $_SESSION['id'];
+
+
+    $sql = "SELECT * FROM tbl_producer WHERE prod_userId = $_SESSION[id] AND prod_id = $prodSelect AND prod_show = 0";
+    $res = $connection->prepare($sql);
+    $res->execute();
+
+    while ($result = $res->fetch(PDO::FETCH_ASSOC)) {
+        $prodSelect = $_GET['prodSelect'];
+        $prod_id = $result['prod_id'];
+        $prod_name = $result['prod_name'];
+        $prod_tel = $result['prod_tel'];
+        $prod_email = $result['prod_email'];
+        $prod_region = $result['prod_name'];
+    }
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -16,43 +33,20 @@ if (!isset($_SESSION['email']) == true and (!isset($_SESSION['password']) == tru
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/styleFormulario.css">
-    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../css/styleFormulario.css">
+    <link rel="stylesheet" href="../../../css/bootstrap.min.css">
     <title>Cadastro de produtor</title>
 </head>
 
 <body>
 
-    <!-- <header>
-            <nav class="navbar navbar-expand-lg">
-                <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                            <img src="../img/logo.wine.jpg" alt="" width="50" height="50">
-                        </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                        <div class="navbar-nav">
-                            <a class="nav-link" aria-current="page" href="../page/home.php">Home</a>
-                            <a class="nav-link" href="../pg/vinhos.php">Vinhos</a>
-                            <a class="nav-link" href="../pg/regiao.php">Regiões</a>
-                            <a class="nav-link" href="../pg/produtor.php">Protudores</a>
-                        </div>
-                    </div>
-                    <form class="register"action="../index.html">
-                        <input class="submit-button" type="submit" value="Sair">
-                    </form>
-                </div>
-            </nav>
-        </header> -->
     <section class="form">
         <div class="container">
             <div class="form-image">
-                <img src="../../img/winery.svg" alt="">
+                <img src="../../../img/winery.svg" alt="">
             </div>
             <div class="form">
-                <form action="../../checkForm/checkProducerForm.php" method="post">
+                <form action="../../../checkForm/editForm/formEditProducer.php?prodSelect=<?php echo $prod_id; ?>" method="post">
                     <div class="form-header">
                         <div class="title">
                             <h1>Cadastro de produtor</h1>
@@ -62,25 +56,25 @@ if (!isset($_SESSION['email']) == true and (!isset($_SESSION['password']) == tru
 
                         <div class="input-box">
                             <label for="prodName">Nome</label>
-                            <input type="text" name="prodName" id="prodName" placeholder="Nome do produtor" required>
+                            <input type="text" name="prodName" id="prodName" value="<?php echo $prod_name?>" placeholder="Nome do produtor" required>
                         </div>
 
                         <div class="input-box">
                             <label for="prodTel">Telefone</label>
-                            <input type="text" name="prodTel" id="prodTel" placeholder="(xx)-xxxxx-xxxx" required>
+                            <input type="text" name="prodTel" id="prodTel" value="<?php echo $prod_tel?>" placeholder="(xx)-xxxxx-xxxx" required>
                         </div>
 
                         <div class="input-box">
                             <label for="prodEmail">Email</label>
-                            <input type="email" name="prodEmail" id="prodEmail" placeholder="digite seu imail" required>
+                            <input type="email" name="prodEmail" id="prodEmail" value="<?php echo $prod_email?>" placeholder="digite seu imail" required>
                         </div>
 
                         <div class="input-box">
                             <label for="prodRegion">Região</label>
-                            <select name="prodRegion" id="wineRegion">
+                            <select name="prodRegion" id="wineRegion" value="<?php echo $prod_region?>">
                             <?php
     session_start();
-    include "../../Login/connection.php";
+    include "../../../Login/connection.php";
     $sql = "SELECT reg_name, reg_id FROM tbl_region WHERE reg_userId = $_SESSION[id] AND reg_show = 0";
     $res = $connection->prepare($sql);
     $res->execute();
@@ -106,7 +100,7 @@ if (!isset($_SESSION['email']) == true and (!isset($_SESSION['password']) == tru
                 </form>
             </div>
         </div>
-        <form action="../home.php" method="post">
+        <form action="../../gallery/producerGallery.php" method="post">
             <div class="form-header">
                 <div class="register-button">
                     <input id="inpb" type="submit" value="Voltar">
@@ -118,7 +112,6 @@ if (!isset($_SESSION['email']) == true and (!isset($_SESSION['password']) == tru
 </body>
 
 </html>
-
 <?php
 }
 ?>

@@ -25,7 +25,7 @@ session_start();if (!isset($_SESSION['email']) == true and (!isset($_SESSION['pa
 
         if($stmt->execute()){
             echo"Dados enviados";
-            header('location:../page/home.php');
+            header('location:../page/gallery/producerGallery.php');
     
         }else{
             echo"Dados não Enviados";
