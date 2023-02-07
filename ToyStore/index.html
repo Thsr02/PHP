@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../ToyStore/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>HeloStoreToy</title>
+</head>
+<body>
+   <div class="container">
+    <nav class="navbar bg-body-tertiary">
+        <div class="container justify-content-start">
+          <a class="navbar-brand" href="#">
+            <img src="../ToyStore/img/56647.jpg" alt="Logo" width="110" height="40" class="d-inline-block align-text-top">
+            HeloStoreToy
+          </a>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Menu
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </div>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+          <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Login
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Login</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            
+        <form action="../ToyStore/checkform/checkLogin.php" method="post">
+          <input type="text" name="user" id="user" placeholder="Usuário"><br><br>
+          <input type="password" name="pass1" id="pass1" placeholder="Senha">
+        </div>
+        <div class="modal-footer">
+       
+          
+          <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Entrar</button>
+        </form>
+          
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+          
+          <a href="../ToyStore/registro.php" class="btn btn-primary">Ainda não é cadastrado?</a>
+        </div>
+      </div>
+    </div>
+  </div>
+        </div>
+      </nav>
+      <br><br>
+      <div class="jumbotron">
+        <div class="row">
+          <div class="card-deck--custom">
+            <div class="card-custom col-md-2 text-center">
+              <div>
+                <img class="card-img-top" src="img/card1.jpg" height="180"/>
+                <div class="card-body">
+                  <a
+                  data-toggle="collapse"
+                  href="#collapseExample"
+                  aria-expanded="false"
+                  aria-controls="collapseExample"
+                  >Blocos</a>
+                </div>
+              </div>
+            </div>
+    
+            <div class="card-custom col-md-2 text-center">
+              <div>
+                <img class="card-img-top" src="img/card2.jpg" height="180" />
+                <div class="card-body">
+                  <a
+                  data-toggle="collapse"
+                  href="#collapseExample"
+                  aria-expanded="false"
+                  aria-controls="collapseExample"
+                  >Bonecas</a>
+                </div>
+              </div>
+            </div>
+    
+            <div class="card-custom col-md-2 text-center">
+              <div>
+                <img
+                  class="card-img-top"
+                  src="img/card3.jpg" height="180"/>
+                <div class="card-body">
+                  <a
+                  data-toggle="collapse"
+                  href="#collapseExample"
+                  aria-expanded="false"
+                  aria-controls="collapseExample"
+                  >Carrinhos</a>
+                </div>
+              </div>
+            </div>
+    
+            <div class="card-custom col-md-2 text-center">
+              <div>
+                <img class="card-img-top" src="img/card4.jpg" height="180"/>
+                <div class="card-body">
+               <a
+                  data-toggle="collapse"
+                  href="#collapseExample"
+                  aria-expanded="false"
+                  aria-controls="collapseExample"
+                  >Action Figure</a>
+                </div>
+              </div>
+            </div>
+    
+            <div class="card-custom col-md-2 text-center">
+              <div>
+                <img class="card-img-top" src="img/card5.jpg" height="180"/>
+                <div class="card-body">
+                <a
+                  data-toggle="collapse"
+                  href="#collapseExample"
+                  aria-expanded="false"
+                  aria-controls="collapseExample"
+                  >Esportes</a>
+                </div>
+              </div>
+            </div>
+            
+            <div class="card-custom col-md-2 text-center">
+              <div>
+                <img
+                  class="card-img-top"
+                  src="img/card6.jpg" height="180"/>
+                <div class="card-body">
+              <a
+                  data-toggle="collapse"
+                  href="#collapseExample"
+                  aria-expanded="false"
+                  aria-controls="collapseExample"
+                  >Jogos</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+
+</div>  
+
+    <script src="../ToyStore/js/bootstrap.bundle.min.js"></script>
+
+</div>  </body>
+</html>
