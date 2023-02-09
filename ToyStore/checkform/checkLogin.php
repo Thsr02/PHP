@@ -4,8 +4,8 @@ session_start();
     if($_POST){
         $email = $_POST['email'];
         $password = $_POST['password'];
-        
-
+        print_r($email);
+        print_r($password);
         include "connection.php";
         
         try {
@@ -23,7 +23,7 @@ session_start();
                     }else{
                         unset($_SESSION['email']);
                         unset($_SESSION['password']);  
-                        header("location: ../index.html");
+                        header("location: ../index.php");
                     }
                 }
         }catch (PDOException $erro){

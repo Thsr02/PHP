@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;400;500&display=swap');
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 'Inter', sans-serif;
+}
+
+body{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container{
+  width: 100%;
+  height: 110vh;
+  display: flex;
+  box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, .212);
+}
+
+.form-image{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.form-image img{
+  width: 31rem;
+}
+
+.form{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #f8ff1e;
+  padding: 0.1rem;
+}
+
+.form-header{
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.register-button{
+  display: flex;
+  align-items: center;
+  padding-top: 2rem;
+}
+
+.register-button #inpb:hover{
+  background-color: #f516d7;
+}
+
+.register-button #inpb{
+  border: none;
+  background-color: rgb(132, 0, 255);
+  padding: 0.4rem 1 rem;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 150px;
+  height: 2rem;
+}
+
+.register-button #inpb{
+  text-decoration: none;
+  font-weight: 500;
+  color: #fff;
+}
+
+.form-header h1::after{
+  content: '';
+  display: block;
+  width: 10rem;
+  height: 0.3rem;
+  background-color: #6c63ff;
+  margin: 0 auto;
+  position: absolute;
+  border-radius: 10px;
+}
+
+.input-group{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.input-box{
+  display: flex;
+  flex-direction: column;
+}
+
+.input-box input{
+  margin: 0.3rem 0;
+  padding: 0.2rem 1.8rem;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 1px 1px 6px #0000001c;
+}
+
+.input-box input:hover{
+  background-color: #eeeeee75;
+}
+
+.input-box input:focus-visible{
+  outline: 1px solid #6c63ff;
+}
+
+.input-box label,
+.gender-title h6{
+  font-size: 1rem;
+  font-weight: 600;
+  color: #000000c0;
+}
+
+.input-box inout::placeholder{
+  color: #000000be;
+}
+
+.title{
+  margin-top: 3rem;
+}

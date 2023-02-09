@@ -16,7 +16,7 @@
             $stmt->bindParam(3, $pass1);
                 if($stmt->execute()){
                     if($stmt->rowCount()>0){
-                        header("refresh: 1, ../index.html");
+                        header("refresh: 1, ../index.php");
                     }else{
                         echo "ERRO: Não foi possivel executar a declaração sql";
                     }
