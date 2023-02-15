@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -27,7 +26,7 @@
                         Menu
                     </button>
                     <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="../page/galeria.php">Galeria</a></li>
+                        <li><a class="dropdown-item" href="../page/blocos.php">Blocos</a></li>
                         <li><a class="dropdown-item" href="../page/bonecas.php">Bonecas</a></li>
                         <li><a class="dropdown-item" href="../page/carrinhos.php">Carrinhos</a></li>
                         <li><a class="dropdown-item" href="../page/actionfigure.php">Action Figure</a></li>
@@ -48,16 +47,16 @@
                         Sair
                     </button>
                 </form>
-                
+
                 
             </div>
         </nav>
         <br><br>
-        <h1>Galeria Blocos</h1>
+        <h1>Galeria de brinquedos</h1>
         <?php
 
         include "../checkform/connection.php";
-        $sql = "SELECT * FROM tbl_brinquedo WHERE bri_userId = $_SESSION[id] AND bri_show = 0 AND bri_cat = 1";
+        $sql = "SELECT * FROM tbl_brinquedo, tbl_categoria WHERE bri_cat = cat_id AND bri_userId = $_SESSION[id] AND bri_show = 0";
         $res = $connection->prepare($sql);
         $res->execute();
 
@@ -65,6 +64,7 @@
             $bri_id = $result['bri_id'];
             $bri_name = $result['bri_name'];
             $bri_img = $result['bri_img'];
+            $cat_name = $result['cat_name'];
 
         ?>
 
@@ -77,7 +77,8 @@
                             <div>
                                 <img class="card-img-top" src="../img/<?php echo $bri_img; ?>" height="180" />
                                 <div class="card-body">
-                                    <?php echo $bri_name; ?><br>
+                                    <?php echo $bri_name;?><br>
+                                    <?php echo " Categoria ".$cat_name;?><br>
                                     <button><a href="../register/edit/editRegisterRegion.php?regSelect_id=<?php echo $reg_id; ?>"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
                                                 <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
                                             </svg></a></button></td>
@@ -103,4 +104,3 @@
 </body>
 
 </html>
-

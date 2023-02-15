@@ -25,6 +25,7 @@ session_start();
               Menu
             </button>
             <ul class="dropdown-menu">
+             <li><a class="dropdown-item" href="../ToyStore/page/galeria.php">Galeria</a></li>
               <li><a class="dropdown-item" href="../ToyStore/page/blocos.php">Blocos</a></li>
               <li><a class="dropdown-item" href="../ToyStore/page/bonecas.php">Bonecas</a></li>
               <li><a class="dropdown-item" href="../ToyStore/page/carrinhos.php">Carrinhos</a></li>

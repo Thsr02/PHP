@@ -31,7 +31,7 @@
                     <img src="../img/56647.jpg" alt="" >
                 </div>
                 <div class="form">
-                <form action="../checkForm/checkToyForm.php" method="post">
+                <form action="../checkForm/checkToyForm.php" method="post" enctype="multipart/form-data">
                         <div class="form-header">
                             <div class="title">
                                 <h1>Cadastrar Brinquedo</h1>
@@ -64,6 +64,10 @@
                             
                                 
                             </select>
+                        </div>
+                        <div class="input-box">
+                            <label for="bri_img"></label>
+                            <input type="file" name="bri_img" id="bri_img">
                         </div>
                     </div>
                     <div class="form-header">
